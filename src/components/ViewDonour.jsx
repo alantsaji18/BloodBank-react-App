@@ -1,63 +1,80 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
-import NavBar from './NavBar';
-
-const ViewCourse = () => {
-    const [data, changeData] = useState([]);
-
-    const fetchData = () => {
-        axios.get("https://host-demo-app.onrender.com/api/donors").then(
-            (response) => {
-                changeData(response.data);
-
-            })
-            .catch()
-    }
-    useEffect(() => {
-        fetchData();
-    }, [])
-    return (
-        <div>
-            <NavBar/>
-            <div className="container">
-                <div className="row">
-                    <div className="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12">
-
-                        <table class="table">
-                            <thead>
-                                <tr>
-                                    <th scope="col">Course Name</th>
-                                    <th scope="col">Duration</th>
-                                    <th scope="col">Fee</th>
-                                    <th scope="col">Mode</th>
-                                    <th scope="col">Trainer</th>
-                                    <th scope="col">Created At</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                {data.map((value, index) => {
-                                    return (
-                                        <tr key={index}>
-                                            <td>{value.course_name}</td>
-                                            <td>{value.duration}</td>
-                                            <td>{value.fee}</td>
-                                            <td>{value.mode}</td>
-                                            <td>{value.trainer}</td>
-                                            <td>{value.created_at}</td>
-                                        </tr>
-                                    )
-                                })}
-                                
-                            </tbody>
-                        </table>
 
 
-                    </div>
-                </div>
-            </div>
+const ViewDonour = () => {
 
-        </div>
-    )
+
+const [data, changeData] = useState([]);
+
+const fetchData = () => {
+    axios.get("https://host-demo-app.onrender.com/api/donors")
+        .then((response) => {
+            console.log(response.data);
+            changeData(response.data);
+        })
+        .catch((error) => {
+            console.log(error);
+            alert("Failed to fetch donors");
+        });
 }
 
-export default ViewCourse
+useEffect(() => {
+    fetchData();
+}, []);
+
+return (
+    <div>
+
+
+        <div className="container mt-4">
+            <div className="row">
+                <div className="col-12">
+
+                    <table className="table table-bordered table-striped">
+                        <thead>
+                            <tr>
+                                <th>Donor Name</th>
+                                <th>Age</th>
+                                <th>Gender</th>
+                                <th>Blood Group</th>
+                                <th>Phone</th>
+                                <th>Email</th>
+                                <th>City</th>
+                                <th>Weight (kg)</th>
+                                <th>Last Donation</th>
+                                <th>Created At</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            {data.map((value, index) => {
+                                return (
+                                    <tr key={index}>
+                                        <td>{value.donor_name}</td>
+                                        <td>{value.age}</td>
+                                        <td>{value.gender}</td>
+                                        <td>{value.blood_group}</td>
+                                        <td>{value.phone}</td>
+                                        <td>{value.email || "N/A"}</td>
+                                        <td>{value.city}</td>
+                                        <td>{value.weight_kg}</td>
+                                        <td>{value.last_donation_date || "N/A"}</td>
+                                        <td>{new Date(value.created_at).toLocaleString()}</td>
+                                    </tr>
+                                );
+                            })}
+                        </tbody>
+
+                    </table>
+
+                </div>
+            </div>
+        </div>
+    </div>
+)
+
+
+}
+
+export default ViewDonour;
