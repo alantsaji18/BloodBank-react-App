@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import NavBar from './NavBar'
 import axios from 'axios'
 
 const AddDonour = () => {
@@ -56,6 +57,7 @@ const readValue = () => {
 
 return (
     <div>
+        <NavBar/>
         <div className="container">
             <div className="row justify-content-center">
                 <div className="col-12 col-md-6 col-lg-5">
