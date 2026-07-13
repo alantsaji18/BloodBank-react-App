@@ -35,7 +35,7 @@ const InsertCourse = () => {
 
                     console.log(response.data)
 
-                    alert("Couse Added Successfully")
+                    alert("Donour Added Successfully")
 
                 }
             ).catch()
