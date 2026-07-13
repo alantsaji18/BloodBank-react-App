@@ -3,14 +3,22 @@ import reactLogo from './assets/react.svg'
 import viteLogo from './assets/vite.svg'
 import heroImg from './assets/hero.png'
 import './App.css'
+import AddDonour from './components/AddDonour'
+import NavBar from './components/NavBar'
+import ViewDonour from './components/ViewDonour'
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
 
 function App() {
   const [count, setCount] = useState(0)
 
   return (
     <>
-      
-      
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<AddDonour />} />
+          <Route path="/view" element={<ViewDonour />} />
+        </Routes>
+      </BrowserRouter>
     </>
   )
 }
