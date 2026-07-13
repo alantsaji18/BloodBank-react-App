@@ -26,24 +26,26 @@ const ViewDonour = () => {
                         <table className="table">
                             <thead>
                                 <tr>
-                                    <th scope="col">Course Name</th>
-                                    <th scope="col">Duration</th>
-                                    <th scope="col">Fee</th>
-                                    <th scope="col">Mode</th>
-                                    <th scope="col">Trainer</th>
-                                    <th scope="col">Created At</th>
+                                    <th scope="col">Donour name</th>
+                                    <th scope="col">Age</th>
+                                    <th scope="col">Gender</th>
+                                    <th scope="col">Blood Group</th>
+                                    <th scope="col">Phone</th>
+                                    <th scope="col">City</th>
+                                    <th scope="col">Weight</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 {data.map((value, index) => {
                                     return (
                                         <tr key={index}>
-                                            <td>{value.course_name}</td>
-                                            <td>{value.duration}</td>
-                                            <td>{value.fee}</td>
-                                            <td>{value.mode}</td>
-                                            <td>{value.trainer}</td>
-                                            <td>{value.created_at}</td>
+                                            <td>{value.donor_name}</td>
+                                            <td>{value.age}</td>
+                                            <td>{value.gender}</td>
+                                            <td>{value.blood_group}</td>
+                                            <td>{value.phone}</td>
+                                            <td>{value.city}</td>
+                                            <td>{value.weight_kg}</td>
                                         </tr>
                                     )
                                 })}
