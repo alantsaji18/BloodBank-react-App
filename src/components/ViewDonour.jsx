@@ -2,7 +2,7 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 import NavBar from './NavBar';
 
-const ViewCourse = () => {
+const ViewDonour = () => {
     const [data, changeData] = useState([]);
 
     const fetchData = () => {
@@ -23,7 +23,7 @@ const ViewCourse = () => {
                 <div className="row">
                     <div className="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12">
 
-                        <table class="table">
+                        <table className="table">
                             <thead>
                                 <tr>
                                     <th scope="col">Course Name</th>
@@ -60,4 +60,4 @@ const ViewCourse = () => {
     )
 }
 
-export default ViewCourse
+export default ViewDonour
